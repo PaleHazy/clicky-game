@@ -27,6 +27,26 @@ const DATA = [
         id: 7,
         clicked: false
     },
+    {
+        id: 8,
+        clicked: false
+    },
+    {
+        id: 9,
+        clicked: false
+    },
+    {
+        id: 10,
+        clicked: false
+    },
+    {
+        id: 11,
+        clicked: false
+    },
+    {
+        id: 12,
+        clicked: false
+    }
     
 ]
 export default DATA;
