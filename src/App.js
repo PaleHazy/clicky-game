@@ -30,33 +30,39 @@ class App extends React.Component {
   };
 
   handleClick = event => {
-    this.state.entitys.forEach(x => {
+    if(!this.state.lost){
+      this.state.entitys.forEach(x => {
 
-      let selectedId = parseInt(event.target.id);
-
-      if (x.id === selectedId) {
-
-        if (x.clicked === false) {
-
-          this.setState(prevState => {
-            let newArr = prevState.entitys.map(item => {
-              if (selectedId === item.id) {
-
-                return { ...item, clicked: true };
-              }
-              return item;
+        let selectedId = parseInt(event.target.id);
+  
+        if (x.id === selectedId) {
+  
+          if (x.clicked === false) {
+  
+            this.setState(prevState => {
+              let newArr = prevState.entitys.map(item => {
+                if (selectedId === item.id) {
+  
+                  return { ...item, clicked: true };
+                }
+                return item;
+              });
+              this.shuffleData(newArr);
+              return { entitys: newArr, points: (prevState.points += 1) };
             });
-            this.shuffleData(newArr);
-            return { entitys: newArr, points: (prevState.points += 1) };
-          });
-        } else {
-          console.log("uou lose");
-          this.setState(prevState => {
-            return ({...prevState, lost: true})
-          })
+          } else {
+            console.log("uou lose");
+            this.setState(prevState => {
+              return ({...prevState, lost: true})
+            })
+          }
         }
-      }
-    });
+      });
+    }
+    else{
+      console.log('no')
+    }
+    
   };
 
   render() {
