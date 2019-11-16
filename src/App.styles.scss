@@ -10,8 +10,19 @@
 }
 .panel{
     width:200px;
+    flex-direction: column;
     background: green;
     display: flex;
-    justify-content: center;
-    align-items: space-around;
+    align-items: center;
+    
+    div{
+        height: min-content;
+        
+    }
+
+}
+.loss-output{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
